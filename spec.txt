@@ -1,0 +1,76 @@
+main.c
+
+Contains all main-related functions
+________________________________________________________________________________
+
+globals
+
+   MAX_EX_COUNT
+   MAX_C_COUNT
+   MAX_EX_NAME_LENGTH
+   MAX_C_NAME_LENGTH
+   MAX_EX_C_COUNT
+
+________________________________________________________________________________
+
+{
+   (global) app_t app
+}
+scan_command()
+
+   Call scanf() and parse the input of the user to determine what command is
+   desired to be executed. A return value of 0 means that "q" was entered and so
+   the application must terminate
+
+   -----
+   Call scanf(), extract a string, and save that string in main_command
+   If main_command is "q"
+      Return 1
+   If main_command is "add"
+      Call scanf(), extract a string, and save that string in sub_command
+      If sub_command is "e"
+         Call init_add_exercise()
+      Else if sub_command is "c"
+         Call init_add_concept()
+   Else if main_command is "update"
+      Call scanf(), extract a string, and save that string in sub_command
+      If sub_command is "e"
+         Call init_update_exercise()
+      Else if sub_command is "c"
+         Call init_update_concept()
+   Else if main_command is "show"
+      Call scanf(), extract a string, and save that string in sub_command
+      If sub_command is "e"
+         Call init_show_exercise()
+      Else if sub_command is "c"
+         Call show_all_concepts()
+   Else if main_command is "search"
+      Call init_search_exercise()
+
+   Return 0;
+
+
+{
+   int[] arr
+   int count
+}
+arr_fill()
+
+   Fill an array with a 0
+
+   -----
+   For i = 1 to count
+      Set arr[i] to 0
+
+
+
+main()
+
+   Main app code
+
+   -----
+   Create Boolean variable quit
+   Do
+      Ask user to enter a command ("add", "update", "show", "search")
+      Call scan_command() and save its return value in quit
+   While quit is not 1

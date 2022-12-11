@@ -1,0 +1,22 @@
+update.c
+
+Defines the logic for updating an existing exercise
+-----
+
+
+{
+   (global) app_t app
+}
+init_update_exercise()
+
+   Initiate the setup before calling update_exercise()
+
+   -----
+   Print "Exercise # >>"
+   Call scanf(), extract an integer and save it in ex_num
+   Extract the exercise_t data object from app.exercises at ex_num and save it
+   * in ex
+   Ask for the name
+   Ask for the diff
+   Ask for concepts
+   Call add_exercise() with ex as an argument and ex_num as an index

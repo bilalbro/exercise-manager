@@ -1,0 +1,63 @@
+show.c
+
+Defines all the logic related to showing a given exercise or all exercises
+-----
+
+
+{
+
+}
+init_show_exercise()
+
+   Initiate the process of calling show_exercise
+
+   -----
+   Print "Enter exercise no. >>"
+   Call scanf() to extract a string, and save it in command
+   If command is "all"
+      Call show_all_exercises()
+   Else
+      Parse integer out of command and put it in ex_num
+      Call show_exercise() passing ex_num as an argument
+
+
+
+{
+   (global) app_t app
+   int ex_num
+}
+show_exercise()
+
+   Given an index, show that exercise from app.exercises
+
+   -----
+   Create a pointer variable ex_p that points to app.exercises[ex_num]
+   First display its name
+   Next display its difficulty rating
+   And finally display its whole list of concepts
+
+
+
+{
+   (global) app_t app
+}
+show_all_exercises()
+
+   Show all exercises that are there in app.exercises
+
+   -----
+   show_exercises(app.exercises, app.ex_count)
+
+
+
+{
+   exercise_t[] exercises
+   int ex_count
+}
+show_exercises()
+
+   Show all exercises from the given list of exercises
+
+   -----
+   For each exercise in exercises
+      Display the name of the exercise, along with its index

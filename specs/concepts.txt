@@ -1,0 +1,97 @@
+concepts.c
+
+Defines all logic for concept-related functionality
+-----
+
+
+{
+   (global) app_t app
+}
+show_all_concepts()
+
+   Print a list of all the currently-registered concepts in app.concepts
+
+   -----
+   For each concept in app.concepts
+      Print the concept name, spanning 55-60 columns
+
+
+
+{
+   char[] concepts
+}
+show_concepts()
+
+   Print a list of all concepts given in the form of the array concepts
+
+   -----
+   For each concept in concepts:
+      Print the concept name, spanning 55-60 columns
+
+
+
+{
+   (global) app_t app
+   char[] str
+   unsigned char[] concepts
+}
+scan_concepts()
+
+   Display a list of all the current concepts numbered from 1 to n and then ask
+   the user to enter the number of concepts to add to the current exercise as a
+   space-delimited string of numbers
+
+   -----
+   Fill the given array concepts with all 0s
+      (Call arr_fill(concepts, MAX_EX_C_CONCEPTS))
+   Call scanf() to parse a string of space-delimited integers
+   Parse each integer out of this string and for each ith integer
+      Set concepts[i] to the integer
+
+
+
+{
+   (global) app_t app
+
+}
+init_add_concept()
+
+   Initiate the process of adding a new concept
+
+   -----
+   Print "Concept name >> "
+   Call scanf(), extract a string out and save it in concept
+   Call add_concept(concept, app.c_count)
+
+
+{
+   (global) app_t app
+   char[] concept
+   int c_num
+}
+add_concept()
+
+   Add a new concept
+
+   -----
+   Set app.concepts[c_num] to concept
+      (This completes the main memory write operation)
+   Open a connection to data.bin in "binary write" mode
+   Seek to the position c_num in the concepts array
+   Write the string concept
+   Close the file
+
+
+{
+
+}
+init_update_concept()
+
+   Update an existing concept
+
+   -----
+   Print "Concept # >> "
+   Call scanf(), extract an integer and save it in the variable c_num
+   Print "New name >> "
+   Call scanf(), extract a string and save it in c_name
+   Call add_concept(c_name, c_num)

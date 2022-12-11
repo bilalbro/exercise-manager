@@ -1,0 +1,43 @@
+add.c
+
+Defines all the logic for adding a new exercise
+-----
+
+
+{
+   (global) app_t app
+}
+init_add_exercise()
+
+   Initiate all the things to be done before calling add_exercise(). For example,
+   show input prompts, collect necessary information etc.
+
+   -----
+   Print line "Adding exercise..."
+   Create a new data object of type exercise_t and put it in ex
+   Ask for name and save it in ex.name
+   Ask for difficulty rating and save it in ex.diff
+   Ask for concepts involved and save all of them in ex.concepts
+      (First, show all concepts using show_concepts())
+      (Call scan_concepts(ex.concepts) to help in this)
+   Call add_exercise() to add this new exercise to the exercise database
+
+
+
+{
+   (global) app_t app
+   exercise_t ex
+   int ex_num
+}
+add_exercise()
+
+   Given a list of parameters, add a new exercise to the program's database in
+   the disk and in the main memory.
+
+   -----
+   Go to app.exercises and add ex to it at the position ex_num
+      (Adding to main memory done)
+   Open a connection to data.bin in "binary write" mode
+   Seek to the given index
+   Write the given ex data structure
+   Close the file

@@ -1,0 +1,93 @@
+search.c
+
+Defines all searching logic
+-----
+
+
+{
+
+}
+init_search_exercise()
+
+   Initiate the process of calling search_exercise()
+
+   -----
+   Print "Let's search..."
+   Create variables name, diff, concepts
+   Ask for a substring pattern in name
+      (Print "Pattern in name >> ")
+      (Get input)
+         (If no input is entered, assume name to be "")
+   Ask for a diff rating
+      (Show mapping of integers to difficulty ratings)
+      (Print "Diff rating >>")
+      (Get input)
+         (If no input is entered, assume diff to be -1)
+   Ask for list of concepts to match
+      (Show all concepts)
+      (Scan concepts)
+         (If no input is entered, set the empty_c flag to true)
+   Call search_exercise() with these inputs
+   Display all searched exercises
+
+
+{
+   (global) app_t app
+   exercise_t[] results
+   exercise_t temp_ex
+   bool empty_c
+}
+search_exercise()
+
+   Search the global app.exercises array for all exercises that match the given
+   template exercise data object temp_ex's parameters
+
+   -----
+   For each exercise in app.exercises
+      If
+      (exercise.name matches temp_ex.name AND
+      exercise.diff matches temp_ex.diff AND
+      exercise.concepts matches temp_ex.concepts)
+         Add exercise to results
+
+
+
+int {
+   int t
+   int s
+}
+match_diff()
+
+   Given two difficulty integers, it returns 0 or 1 depending on whether they 
+   both match
+
+   -----
+   If t is -1
+      (t = -1 means that the user didn't specify anything related to diff)
+      Return 1
+   If t == s
+      Return 1
+   Return 0
+
+
+
+int {
+   char[] s
+   char[] t
+}
+match_concepts()
+
+   Given two arrays of integers denoting concept names, it returns 0 or 1
+   depending on whether they both match each other
+
+   -----
+   Create Boolean variable found
+   For each int _t in t
+      Set found to false
+      For each int _s in s
+         If _t == _s
+            found = true
+            Break out of loop
+      If not found
+         return 0
+   return 1
